@@ -1,23 +1,25 @@
 {
-  "name": "DevOff-Desafio-2",
+  "name": "devoff-desafio-2",
   "version": "1.0.0",
   "description": "![](https://static-cdn.jtvnw.net/jtv_user_pictures/fb425ddf-5e67-4c84-9210-8065809675f7-profile_banner-480.png)",
   "main": "index.js",
   "scripts": {
-    "test": "node test",
+    "test": "jest",
     "start": "node index"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FedericoLeiva12/DevOff-Desafio-2.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Federico J. Leiva",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/FedericoLeiva12/DevOff-Desafio-2/issues"
   },
   "homepage": "https://github.com/FedericoLeiva12/DevOff-Desafio-2#readme",
+  "devDependencies": {
+    "jest": "^26.2.2"
+  },
   "dependencies": {
     "express": "^4.17.1"
   }

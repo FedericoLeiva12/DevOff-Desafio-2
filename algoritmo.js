@@ -1,42 +1,42 @@
-function cifrar(texto, vueltas, columnas) {
-    let matrix = [];
-    let index = 0;
+function genMatrix(str, columnSize) {
+    let res = [];
+    let columns = Math.ceil(str.length / columnSize);
 
-    for(let i = 0; i < texto.length; i++) {
-        if(i % Math.floor(texto.length / columnas) === 0) {
-            matrix.push([]);
-            index++;
-        }
-        if(typeof matrix[index] !== typeof([])) matrix[index] = [];
-        matrix[index].push(texto[i]);
+    for(let i = 0; i < columns; i++) {
+        let filler = new Array(columnSize).fill(' ');
+        let col = [...str.split('').slice(i * columnSize, i * columnSize + columnSize), ...filler];
+        col = col.slice(0, columnSize);
+        res = [...res, col];
     }
 
-    for(let l = 0; l < vueltas; l++) {
-        let temp = [];
-        let size = Math.sqrt(matrix[0].length);
-        temp.length = matrix.length;
+    return res;
+}
 
-        for(let i = 0; i < matrix.length; i++) {
-            let x = i % size;
-            let y = Math.floor(i / size);
+function rotateMatrix(matrix) {
+    let res = [];
 
-            let nX = size - y - 1;
-            let nY = x;
-
-            let nP = nY * size + nX;
-            temp[nP] = matrix[i];
+    for(let i = 0; i < matrix[0].length; i++) {
+        res.push([])
+        for(let l = 0; l < matrix.length; l++) {
+            res[i].push(matrix[l][i])
         }
+    }
+    return res;
+}
 
-        matrix = temp;
+function matrixToStr(matrix) {
+    let res = '';
+    for(let i = 0; i < matrix.length; i++) {
+        for(let l = 0; l < matrix[i].length; l++) {
+            res = res + matrix[i][l];
+        }
     }
 
-    matrix.shift();
-    return matrix;
+    return res;
 }
 
 module.exports = {
-    cifrar
-}
-
-
-// Ho|la| m|un|do => 10 / 5 = 2
+    genMatrix,
+    rotateMatrix,
+    matrixToStr
+};
