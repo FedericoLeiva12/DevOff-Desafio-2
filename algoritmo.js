@@ -35,8 +35,14 @@ function matrixToStr(matrix) {
     return res;
 }
 
+function genRotatedMatrix(str, columnSize) {
+    let realColumnSize = Math.ceil(str.length / columnSize);
+    return genMatrix(str, realColumnSize);
+}
+
 module.exports = {
     genMatrix,
+    genRotatedMatrix,
     rotateMatrix,
     matrixToStr
 };

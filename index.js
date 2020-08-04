@@ -17,7 +17,7 @@ app.post('/encode', (req, res) => {
 app.post('/decode', (req, res) => {
     res.send({ mensaje: algoritmos.matrixToStr(
         algoritmos.rotateMatrix(
-            algoritmos.genMatrix(req.body.mensaje, req.body.vueltas)
+            algoritmos.genRotatedMatrix(req.body.mensaje, req.body.vueltas)
         )
     ) });
 });
